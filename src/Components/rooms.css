@@ -1,0 +1,153 @@
+/* initial hidden state */
+.rooms-container {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 2.5s ease;
+  
+}
+
+
+
+/* jab screen par aaye */
+.rooms-container.show {
+  opacity: 1;
+  transform: translateY(0);
+  background-color: #665642;
+  
+}
+
+.rooms-container {
+  display: flex;              /* 👈 grid se flex */
+  gap: 20px;
+  padding: 60px 20px;
+
+  overflow-x: auto;           /* 👈 horizontal slide */
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+
+/* optional: scrollbar hide */
+
+.rooms-container::-webkit-scrollbar {
+  display: none;
+}
+.rooms-container {
+  scrollbar-width: none;
+}
+
+.room-card {
+  position: relative;
+  height: 420px;
+  width: 300px;               /* 👈 fixed card width */
+  flex: 0 0 auto;             /* 👈 ek hi line me force */
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.room-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- BASIC (DEFAULT) ---------- */
+.room-basic {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 25px;
+  background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+  color: #fff;
+  transition: opacity 0.4s ease;
+}
+
+.room-basic h3 {
+  font-size: 24px;
+}
+
+.room-basic span {
+  color: #cfa670;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* ---------- HOVER CONTENT ---------- */
+.room-hover {
+  position: absolute;
+  inset: 0;
+  background: rgba(99, 100, 109, 0.95);
+  color: #fff;
+  padding: 30px;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+}
+
+.room-hover h3 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.room-hover .price span {
+  color: #cfa670;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.room-hover ul {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.room-hover ul li {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.room-hover button {
+  margin-top: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #cfa670;
+  cursor: pointer;
+}
+
+/* ---------- HOVER EFFECT ---------- */
+.room-card:hover .room-hover {
+  transform: translateY(0);
+  transition: transform 0.5s ease;
+  animation-delay: 2s;
+}
+
+.room-card:hover .room-basic {
+  opacity: 0;
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  .room-card {
+    width: 320px;
+  }
+}
+
+/* Laptop / Tablet */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .room-card {
+    width: 280px;
+  }
+  .room-basic h3 {
+    font-size: 22px;
+  }
+  
+}
+/* Mobile */
+@media (max-width: 767px) {
+  .room-card {
+    width: 240px;
+  }
+   .room-basic h3 {
+    font-size: 20px;
+  }
+}

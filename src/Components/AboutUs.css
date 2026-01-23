@@ -1,0 +1,142 @@
+/* ===== ABOUT SECTION ===== */
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 8%;
+  gap: 60px;
+
+  /* 🔥 initial hidden for scroll animation */
+  opacity: 0;
+  transform: translateY(120px);
+  transition: all 1.5s ease;
+}
+
+/* 🔥 show class for fade-in effect */
+.about.show {
+  opacity: 1;
+  transform: translateY(0);
+  padding-left: 150px;
+}
+
+/* ===== LEFT CONTENT ===== */
+.about-left {
+  flex: 1;
+  order: 1;
+  color: #111;
+  background: rgba(255, 255, 255, 0.15); /* glass effect */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 30px 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.about-left h2 {
+  font-size: 42px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.about-left p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.about-left ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-left li {
+  margin-bottom: 12px;
+  padding-left: 25px;
+  position: relative;
+  font-size: 15px;
+  color: #444;
+}
+
+.about-left li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #6a3dfc; /* highlight color */
+  font-weight: bold;
+}
+
+/* ===== RIGHT IMAGE ===== */
+.about-right {
+  order: 2;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-right img {
+  height: 400px;
+  width: 80%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+
+.about-right img:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 50px 50px rgba(0,0,0,0.25);
+}
+
+/* ===== FLOAT ANIMATION ===== */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .about {
+    flex-direction: column;
+    padding: 50px 6%;
+    text-align: center;
+  }
+  .about.show {
+    padding-left: 20px;
+  }
+
+  .about-right {
+    order: 1;
+    height: 50%;
+    width: 80%;
+  }
+
+  .about-left {
+    order: 2;
+  }
+
+  .about-left h2 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-left h2 {
+    font-size: 28px;
+  }
+
+  .about-left p {
+    font-size: 14px;
+  }
+
+  .about-left li {
+    font-size: 13px;
+  }
+
+  .about-right img {
+    width: 100%;
+    height: auto;
+  }
+}
