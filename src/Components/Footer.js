@@ -62,6 +62,7 @@ export default function Footer() {
             <li>Housekeeping & Laundry</li>
             <li>Restaurant & Room Service</li>
             <li>Safe & Secure Environment</li>
+             <li>Ecoplug Station</li>
           </ul>
         </div>
 
